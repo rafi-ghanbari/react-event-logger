@@ -1,10 +1,10 @@
 import { useEvent } from "../context/EventContext";
 import { format } from "date-fns";
-import { Calendar, Clock, AlignLeft } from "lucide-react";
+import { Calendar, Clock, AlignLeft, Trash2 } from "lucide-react";
 import styles from "./EventDetails.module.css";
 
 const EventDetails = () => {
-    const { selectedEvent } = useEvent();
+    const { selectedEvent, deleteEvent } = useEvent();
 
     if (!selectedEvent) {
         return (
@@ -25,13 +25,28 @@ const EventDetails = () => {
         );
     }
 
+    const handleDelete = () => {
+        if (window.confirm("Are you sure you want to delete this event?")) {
+            deleteEvent(selectedEvent.id);
+        }
+    };
+
     return (
         <div className={styles.container}>
             <div className={styles.card}>
                 <div className={styles.header}>
-                    <h1 className={styles.title}>
-                        {selectedEvent.title}
-                    </h1>
+                    <div className={styles.headerTop}>
+                        <h1 className={styles.title}>
+                            {selectedEvent.title}
+                        </h1>
+                        <button
+                            onClick={handleDelete}
+                            className={styles.deleteButton}
+                            title="Delete Event"
+                        >
+                            <Trash2 className="w-5 h-5" />
+                        </button>
+                    </div>
 
                     <div className={styles.metaContainer}>
                         <div className={styles.metaItem}>
