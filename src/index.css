@@ -1,0 +1,66 @@
+:root {
+  --primary-color: #6366f1; 
+  --primary-hover: #4f46e5; 
+  --background-color: #f8fafc; 
+  --sidebar-bg: #ffffff;
+  --text-primary: #1e293b; 
+  --text-secondary: #64748b; 
+  --border-color: #e2e8f0; 
+  --active-item-bg: #e0e7ff; 
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --danger-color: #ef4444;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+input, textarea {
+  font-family: inherit;
+  outline: none;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  stroke-width: 2px;
+}
