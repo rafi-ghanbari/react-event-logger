@@ -1,18 +1,31 @@
 .sidebar {
     width: 20rem;
     flex-shrink: 0;
-    background-color: #ffffff;
-    border-right: 1px solid #e5e7eb;
+    background-color: var(--sidebar-bg);
+    /* Use var for consistency */
+    border-right: 1px solid var(--border-color);
     height: 100%;
     display: flex;
     flex-direction: column;
     box-shadow: 4px 0 24px rgba(0, 0, 0, 0.02);
     z-index: 10;
+    transition: width 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        max-height: 40vh;
+        /* Limit height on mobile so main content is visible */
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
 }
 
 .header {
     padding: 1.5rem;
-    border-bottom: 1px solid #f3f4f6;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .headerTitleRow {
@@ -27,6 +40,8 @@
     font-weight: 700;
     background: linear-gradient(to right, #4f46e5, #7c3aed);
     -webkit-background-clip: text;
+    background-clip: text;
+    /* Standard */
     color: transparent;
     margin: 0;
 }
@@ -40,6 +55,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border: none;
+    cursor: pointer;
 }
 
 .addButton:hover {
@@ -54,7 +71,23 @@
 
 .content {
     flex: 1;
-    overflow: hidden;
+    overflow-y: auto;
+    /* Ensure scrolling works */
+    overflow-x: hidden;
     padding: 1rem;
     padding-top: 0.5rem;
+}
+
+/* Style scrollbar for consistent look */
+.content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background-color: #e2e8f0;
+    border-radius: 3px;
 }
